@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose"); // Import Mongoose pour MongoDB
-const http = require("http");  // Ajout pour créer le serveur HTTP
+const http = require("http"); // Ajout pour créer le serveur HTTP
 const { Server } = require("socket.io"); // Ajout pour Socket.IO
 
 // Import des middlewares et des routes
@@ -14,8 +14,7 @@ const commentRoutes = require("./routes/commentRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const friendRequestRoutes = require("./routes/friendRequestRoutes");
 const messageRoutes = require("./routes/messageRoutes");
-const authRoutes = require('./routes/authRoutes'); // Assurez-vous que le chemin est correct
-
+const authRoutes = require("./routes/authRoutes"); // Assurez-vous que le chemin est correct
 
 dotenv.config(); // Charge les variables d'environnement depuis un fichier .env
 
@@ -31,7 +30,7 @@ const server = http.createServer(app); // Utilisation de http.createServer
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3001", // Adresse du frontend
-    methods: ["GET", "POST" ,"PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   },
 });
 
@@ -45,7 +44,7 @@ mongoose
   .catch((err) => console.error("Erreur de connexion à MongoDB:", err));
 
 // Middleware
-app.use(cors({ origin: "http://localhost:3000"}));
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json()); // Pour parser le JSON dans les requêtes
 
 // Routes principales
@@ -57,12 +56,9 @@ app.use("/api/friend-requests", friendRequestRoutes); // Routes des demandes d'a
 app.use("/api/messages", messageRoutes); // Routes des messages
 app.use("/api/auth", authRoutes); // Routes d'authentification
 
-
-
 app.get("/api/status", (req, res) => {
   res.json({ message: "Backend is connected!" });
 });
-
 
 // Middleware pour la gestion des erreurs (doit être le dernier)
 app.use(errorMiddleware);
@@ -85,8 +81,6 @@ io.on("connection", (socket) => {
     socket.to(recipient).emit("user-stopped-typing");
   });
 });
-
-
 
 // Démarrer le serveur
 const PORT = process.env.PORT || 4000;
