@@ -1,0 +1,134 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Style global pour les pages d'authentification */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+/* Boîte contenant le formulaire */
+.auth-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Titre */
+.auth-box h2,.auth-box h1 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+/* Champs de formulaire */
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #e8f0fe;
+  transition: background-color 0.3s ease ,border-color 0.3s ease;
+}
+
+/* Lorsque l'utilisateur commence à saisir du texte */
+.auth-box input:focus,
+.auth-box input:not(:placeholder-shown) {
+  background-color: white;
+  border-color: #007bff; /* Bleu */
+  outline: none;
+}
+
+/* Bouton de soumission */
+.auth-box button {
+  width: 100%;
+  padding: 12px;
+  background: #6a11cb;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.auth-box button:hover {
+  background: #2575fc;
+}
+
+/* Lien vers inscription ou connexion */
+.auth-box p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.auth-box a {
+  color: #6a11cb;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.auth-box a:hover {
+  text-decoration: underline;
+}
+
+/* Style spécifique aux erreurs */
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .auth-box {
+    width: 90%;
+    padding: 20px;
+  }
+}
